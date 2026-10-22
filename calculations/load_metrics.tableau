@@ -1,0 +1,22 @@
+// =====================================================================
+// Project: Tableau Advanced Level of Detail (LOD) Expressions
+// Description: Fixed, Include, and Exclude LOD calculations for 
+//              regional freight performance and YoY comparison.
+// =====================================================================
+
+// 1. FIXED LOD: Total Regional Freight Spend (Ignores dashboard filters except context)
+// Calculates total freight cost per Region regardless of carrier/hub filters applied.
+[Regional_Total_Spend]
+{ FIXED [Region] : SUM([BilledAmount]) }
+
+
+// 2. INCLUDE LOD: Average Carrier Spend per Distribution Center
+// Computes carrier spend evaluated at the Distribution Center detail level.
+[Avg_Carrier_Spend_Per_Hub]
+{ INCLUDE [OriginHub] : AVG([BilledAmount]) }
+
+
+// 3. EXCLUDE LOD: Overall Average Transit Time (Ignores Carrier dimension)
+// Compares specific carrier transit times against overall average baseline.
+[Overall_Avg_Transit_Hours]
+{ EXCLUDE [CarrierName] : AVG([TotalTransitHours]) }
