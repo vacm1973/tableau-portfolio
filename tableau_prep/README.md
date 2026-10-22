@@ -1,7 +1,9 @@
 # 🛠️ Tableau Prep Workflow (`logistics_data_prep.tflx`)
 
-This workflow demonstrates data cleaning, dataset unions, and relationships using Tableau Prep Builder:
+This workflow demonstrates data cleansing, dataset unions, and relationships in Tableau Prep Builder using local multi-source datasets:
 
-1. **Dataset Union:** Combines monthly transactional logs (`Shipments_2024.csv` and `Shipments_2025.csv`) into a single unified stream.
-2. **Data Cleansing:** Normalizes carrier text to uppercase, removes null tracking records, and handles missing weight/volume metrics.
-3. **Multi-Table Relationships:** Joins cleaned shipments with `ContractsMaster` and `Calendar` datasets on `CarrierID` and `ShipmentDate`.
+1. **Dataset Union:** Merges historical shipment records from [`/tableau/data/Shipments_2024.csv`](../data/Shipments_2024.csv) and `Shipments_2025.csv` into a unified transaction stream.
+2. **Data Cleansing:** Standardizes hub text formatting (`UPPER`), handles missing billing values, and flags tracking anomalies.
+3. **Data Relationship / Join:** Joins unified shipments with [`/tableau/data/Carrier_Contracts.csv`](../data/Carrier_Contracts.csv) on `CarrierID` to prepare contract variance metrics for Tableau Desktop.
+
+[← Back to Tableau Module](../README.md)
