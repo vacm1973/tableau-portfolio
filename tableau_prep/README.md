@@ -1,9 +1,18 @@
-# 🛠️ Tableau Prep Workflow (`logistics_data_prep.tflx`)
+# 🛠️ Enterprise Data Preparation Pipeline | Tableau Prep Builder
 
-This workflow demonstrates data cleansing, dataset unions, and relationships in Tableau Prep Builder using local multi-source datasets:
+> **Pipeline Version:** `v2.4.0`  
+> **Source Systems:** Multi-year WMS CSV Extracts (`Shipments_2024`, `Shipments_2025`) & ERP Master Tables (`Carrier_Contracts`)  
+> **Output Target:** Published Data Source (.hyper) to Tableau Cloud / Server  
 
-1. **Dataset Union:** Merges historical shipment records from [`/tableau/data/Shipments_2024.csv`](../data/Shipments_2024.csv) and [`/tableau/data/Shipments_2025.csv`](../data/Shipments_2025.csv) into a unified transaction stream.
-2. **Data Cleansing:** Standardizes hub text formatting (`UPPER`), handles missing billing values, and flags tracking anomalies.
-3. **Data Relationship / Join:** Joins unified shipments with [`/tableau/data/Carrier_Contracts.csv`](../data/Carrier_Contracts.csv) on `CarrierID` to prepare contract variance metrics for Tableau Desktop.
+---
 
-[← Back to Tableau Module](../README.md)
+## 📌 Architecture & ETL Design Overview
+
+This data flow transforms dirty, multi-source operational shipment logs into an enterprise-ready published data source. It handles structural schema inconsistencies, string normalization, missing value imputation, variance flagging, and multi-table relationships.
+
+```text
+[Shipments_2024.csv] ──┐
+                      ├──► [Union Step] ──► [Clean & Normalize] ──┐
+[Shipments_2025.csv] ──┘                                         │
+                                                                 ├──► [Left Join] ──► [Audit Step] ──► Output (.hyper)
+[Carrier_Contracts.csv] ────────────────────► [Clean Master]   ──┘   (CarrierID)      (Cost Variance)
