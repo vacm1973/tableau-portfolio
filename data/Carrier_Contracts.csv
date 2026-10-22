@@ -1,0 +1,3 @@
+CarrierID,CarrierName,RouteID,AgreedRate,ServiceLevel
+CARRIER-A,Express Logistics,RT-01,1200.00,Premium
+CARRIER-B,Global Freight,RT-02,800.00,Standard
