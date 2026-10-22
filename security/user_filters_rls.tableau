@@ -1,0 +1,8 @@
+// =====================================================================
+// Project: Dynamic Row-Level Security (RLS) in Tableau
+// Description: Filters data dynamically based on Tableau Server/Cloud 
+//              authenticated username and assigned region.
+// =====================================================================
+
+// Dynamic Security Calculation (Add to Data Source Filter)
+[Region] = USERNAME() OR ISMEMBEROF("Logistics_Admins")
