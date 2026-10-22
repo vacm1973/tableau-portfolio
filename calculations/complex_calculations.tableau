@@ -1,0 +1,18 @@
+// =====================================================================
+// Project: Complex Tableau Calculations & Variance Analysis
+// Description: Advanced Table Calculations and conditional KPIs.
+// =====================================================================
+
+// 1. Cost Variance Status
+IF [BilledAmount] > [ContractRate] THEN "Overbilled"
+ELSEIF [BilledAmount] < [ContractRate] THEN "Underbilled"
+ELSE "Matched"
+END
+
+
+// 2. Running Total Freight Spend (Table Calculation)
+RUNNING_SUM(SUM([BilledAmount]))
+
+
+// 3. Year-over-Year (YoY) Spend Variance %
+(SUM([BilledAmount]) - LOOKUP(SUM([BilledAmount]), -1)) / ABS(LOOKUP(SUM([BilledAmount]), -1))
