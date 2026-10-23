@@ -32,4 +32,8 @@ A comprehensive end-to-end Tableau BI solution demonstrating multi-dataset prep 
 
 ---
 
-[← Back to Main Repository](../README.md)
+**Victor Andres Costa Molina**
+
+Senior Data Engineer | BI & Data Architecture
+
+[GitHub Profile](https://github.com/vacm1973)
