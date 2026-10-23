@@ -2,7 +2,7 @@ import csv
 import os
 
 # Ensure directory exists
-os.makedirs("tableau/data", exist_ok=True)
+os.makedirs("tableau_portfolio/data", exist_ok=True)
 
 # 1. Carrier Contracts Master
 contracts_data = [
@@ -12,7 +12,7 @@ contracts_data = [
     ["CARRIER-C", "Patagonian Transit", "RT-SOUTH-NORTH", 1500.00, "Express", 30],
 ]
 
-with open("tableau/data/Carrier_Contracts.csv", "w", newline="", encoding="utf-8") as f:
+with open("tableau_portfolio/data/Carrier_Contracts.csv", "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
     writer.writerows(contracts_data)
 
@@ -26,7 +26,7 @@ shipments_2024 = [
     ["TRK-2024-005", "HUB-NORTH", "HUB-SOUTH", "CARRIER-A", "1200.00", "2024-06-12 09:00:00", "DELIVERED"],
 ]
 
-with open("tableau/data/Shipments_2024.csv", "w", newline="", encoding="utf-8") as f:
+with open("tableau_portfolio/data/Shipments_2024.csv", "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
     writer.writerows(shipments_2024)
 
@@ -39,7 +39,7 @@ shipments_2025 = [
     ["TRK-2025-004", "hub-west", "HUB-EAST", "CARRIER-B", "850.00", "2025-03-15 13:10:00", "DELIVERED"],
 ]
 
-with open("tableau/data/Shipments_2025.csv", "w", newline="", encoding="utf-8") as f:
+with open("tableau_portfolio/data/Shipments_2025.csv", "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
     writer.writerows(shipments_2025)
 
