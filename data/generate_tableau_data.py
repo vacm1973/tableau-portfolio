@@ -43,4 +43,4 @@ with open("tableau_portfolio/data/Shipments_2025.csv", "w", newline="", encoding
     writer = csv.writer(f)
     writer.writerows(shipments_2025)
 
-print("Data generation complete. Datasets saved to tableau/data/")
+print("Data generation complete. Datasets saved to tableau_portfolio/data/")
